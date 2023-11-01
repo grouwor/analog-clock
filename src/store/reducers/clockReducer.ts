@@ -20,7 +20,7 @@ export const initialState: ClockState = {
     seconds: 0,
 };
 
-export default function Clock(state: ClockState = initialState, action: ClockAction) {
+export default function ClockReducer(state: ClockState = initialState, action: ClockAction) {
     switch (action.type) {
         case ClockActionTypes.TICK:
             return {
