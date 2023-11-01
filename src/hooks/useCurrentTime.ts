@@ -12,10 +12,10 @@ const useCurrentTime = () => {
      * Updates the clock context with the current time
      */
     const handleTick = () => {
-      clockContext?.handleTick(new Date());
+      clockContext.handleTick(new Date());
     };
 
-    const interval = setInterval(handleTick, 500);
+    const interval = setInterval(handleTick, 1000);
 
     return () => {
       clearInterval(interval);
