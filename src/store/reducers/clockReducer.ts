@@ -27,5 +27,7 @@ export const ClockReducer = (state: ClockState = initialState, action: ClockActi
         ...state,
         ...action.payload
       };
+    default:
+      break;
   }
 };
