@@ -1,4 +1,5 @@
 import React from 'react';
+import useCurrentTime from '../hooks/useCurrentTime';
 
 /**
  * Props for the Clock component
@@ -13,6 +14,7 @@ interface ClockProps {
  * Clock component displays the time with hour, minute, and second hands
  */
 const Clock: React.FC<ClockProps> = ({ hour, minute, second }) => {
+  useCurrentTime();
   /**
    * Calculates the rotation angle for the hour hand
    * @param hour - The hour value
