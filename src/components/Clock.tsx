@@ -23,32 +23,37 @@ const Clock: React.FC<ClockProps> = ({ hours, minutes, seconds }) => {
   const [showTooltip, setShowTooltip] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Event handler for mouse movement
-  const handleMouseMove = (event: MouseEvent) => {
-    setTooltipPosition({ x: event.clientX - containerRef.current!.offsetLeft, y: event.clientY - containerRef.current!.offsetTop - 20 });
-  };
-
-  // Event handler for mouse enter
-  const handleMouseEnter = () => {
-    setShowTooltip(true);
-  };
-
-  // Event handler for mouse leave
-  const handleMouseLeave = () => {
-    setShowTooltip(false);
-  };
 
   // Add event listeners when component mounts
   useEffect(() => {
-    containerRef.current!.addEventListener('mouseenter', handleMouseEnter);
-    containerRef.current!.addEventListener('mousemove', handleMouseMove);
-    containerRef.current!.addEventListener('mouseleave', handleMouseLeave);
+    const container = containerRef.current!;
+    // Event handler for mouse movement
+    const handleMouseMove = (event: MouseEvent) => {
+      setTooltipPosition({
+        x: event.clientX - container.offsetLeft,
+        y: event.clientY - container.offsetTop - 20
+      });
+    };
+
+    // Event handler for mouse enter
+    const handleMouseEnter = () => {
+      setShowTooltip(true);
+    };
+
+    // Event handler for mouse leave
+    const handleMouseLeave = () => {
+      setShowTooltip(false);
+    };
+
+    container.addEventListener('mouseenter', handleMouseEnter);
+    container.addEventListener('mousemove', handleMouseMove);
+    container.addEventListener('mouseleave', handleMouseLeave);
 
     // Remove event listeners when component unmounts
     return () => {
-      containerRef.current!.removeEventListener('mouseenter', handleMouseEnter);
-      containerRef.current!.removeEventListener('mousemove', handleMouseMove);
-      containerRef.current!.removeEventListener('mouseleave', handleMouseLeave);
+      container.removeEventListener('mouseenter', handleMouseEnter);
+      container.removeEventListener('mousemove', handleMouseMove);
+      container.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, []);
 
