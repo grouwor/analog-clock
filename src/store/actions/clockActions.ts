@@ -1,15 +1,11 @@
 import ClockActionTypes from "./clockActionTypes";
-
+import { ClockState } from "../reducers/clockReducer";
 /**
  * Interface for the clock action.
  */
 export interface ClockAction {
   type: string;
-  payload: {
-    hours: number;
-    minutes: number;
-    seconds: number;
-  };
+  payload: ClockState;
 }
 
 /**
