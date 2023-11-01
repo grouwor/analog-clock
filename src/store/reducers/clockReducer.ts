@@ -6,9 +6,9 @@ import { ClockAction } from "../actions/clockActions";
  * Interface for the clock state.
  */
 export interface ClockState {
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
+    hours: number,
+    minutes: number,
+    seconds: number,
 }
 
 /**
