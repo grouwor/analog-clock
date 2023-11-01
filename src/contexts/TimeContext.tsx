@@ -17,7 +17,7 @@ import { ClockAction } from '../store/actions/clockActions';
 /**
  * Defines the shape of the time context object.
  */
-interface TimeContextType extends ClockState {
+interface ClockContextType extends ClockState {
   /**
    * Handles the tick action and updates the time state.
    * @param {Date} date - The current date.
@@ -27,23 +27,23 @@ interface TimeContextType extends ClockState {
 };
 
 /**
- * Props for the TimeContextProvider component.
+ * Props for the ClockContextProvider component.
  */
-type TimeContextProviderProps = {
+type ClockContextProviderProps = {
   children: ReactElement
 };
 
 /*
- * The TimeContext.
+ * The ClockContext.
  */
-const TimeContext = createContext<TimeContextType | null>(null);
+const ClockContext = createContext<ClockContextType | null>(null);
 
 /**
- * The provider component for the TimeContext.
- * @param {TimeContextProviderProps} props - The component props.
- * @returns {React.ReactElement} - The TimeContextProvider component.
+ * The provider component for the ClockContext.
+ * @param {ClockContextProviderProps} props - The component props.
+ * @returns {React.ReactElement} - The ClockContextProvider component.
  */
-export function TimeContextProvider({ children }: TimeContextProviderProps): React.ReactElement {
+export function ClockContextProvider({ children }: ClockContextProviderProps): React.ReactElement {
   // Initialize the time state using the ClockReducer and InitialClockState.
   const [time, dispatch]: [ClockState, Dispatch<ClockAction>] = useReducer(
     ClockReducer,
@@ -65,17 +65,17 @@ export function TimeContextProvider({ children }: TimeContextProviderProps): Rea
   }
 
   /**
-   * Wrap the children components with the TimeContext.Provider component.
+   * Wrap the children components with the ClockContext.Provider component.
    * Pass the time state and handleTick function as the context value.
    */ 
   return (
-    <TimeContext.Provider value={{
+    <ClockContext.Provider value={{
       ...time,
       handleTick
     }}>
       {children}
-    </TimeContext.Provider>
+    </ClockContext.Provider>
   );
 }
 
-export default TimeContext;
+export default ClockContext;
