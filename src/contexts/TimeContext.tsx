@@ -6,21 +6,9 @@ import {
   SetStateAction,
   ReactElement
 } from 'react';
+import { ClockState } from '../store/reducers/clockReducer';
 
-type TimeContextType = {
-  /**
-   * Hours of the current time.
-   */
-  hours: number;
-  /**
-   * Minutes of the current time.
-   */
-  minutes: number;
-  /**
-   * Seconds of the current time.
-   */
-  seconds: number;
-};
+type TimeContextType = ClockState;
 
 type TimeContextProviderProps = {
   children: ReactElement
