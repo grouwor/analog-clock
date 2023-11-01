@@ -20,14 +20,15 @@ export const initialState: ClockState = {
   seconds: 0,
 };
 
-export const ClockReducer = (state: ClockState = initialState, action: ClockAction) => {
+export const ClockReducer = (state: ClockState = initialState, action: ClockAction): ClockState => {
   switch (action.type) {
     case ClockActionTypes.TICK:
       return {
         ...state,
         ...action.payload
       };
-    default:
-      break;
+    default: {
+      throw Error('Unknown action: ' + action.type);
+    }
   }
 };
