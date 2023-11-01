@@ -1,3 +1,7 @@
+.container {
+  margin: 20px;
+}
+
 .analog-clock {
   position: relative;
   width: 200px;

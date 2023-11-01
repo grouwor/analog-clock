@@ -7,9 +7,11 @@ import './App.css';
  */
 function App() {
   return (
-    <ClockContextProvider>
-      <ClockContainer />
-    </ClockContextProvider>
+    <div className="container">
+      <ClockContextProvider>
+        <ClockContainer />
+      </ClockContextProvider>
+    </div>
   );
 };
 
