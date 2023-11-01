@@ -64,7 +64,10 @@ export function TimeContextProvider({ children }: TimeContextProviderProps): Rea
     ));
   }
 
-  // Wrap the children components with the TimeContext.Provider component, passing the time state and handleTick function as the context value.
+  /**
+   * Wrap the children components with the TimeContext.Provider component.
+   * Pass the time state and handleTick function as the context value.
+   */ 
   return (
     <TimeContext.Provider value={{
       ...time,
