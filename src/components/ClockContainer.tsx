@@ -14,9 +14,9 @@ const ClockContainer: React.FC = () => {
 
   return (
     <Clock
-      hour={clockContext.hours}
-      minute={clockContext.minutes}
-      second={clockContext.seconds}
+      hours={clockContext.hours}
+      minutes={clockContext.minutes}
+      seconds={clockContext.seconds}
     />
   );
 };
