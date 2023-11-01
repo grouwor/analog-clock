@@ -36,7 +36,12 @@ type ClockContextProviderProps = {
 /*
  * The ClockContext.
  */
-const ClockContext = createContext<ClockContextType | null>(null);
+const ClockContext = createContext<ClockContextType>({
+  hours: 0,
+  minutes: 0,
+  seconds: 0,
+  handleTick(_) { }
+});
 
 /**
  * The provider component for the ClockContext.
@@ -67,7 +72,7 @@ export function ClockContextProvider({ children }: ClockContextProviderProps): R
   /**
    * Wrap the children components with the ClockContext.Provider component.
    * Pass the time state and handleTick function as the context value.
-   */ 
+   */
   return (
     <ClockContext.Provider value={{
       ...time,
