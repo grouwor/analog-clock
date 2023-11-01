@@ -6,26 +6,26 @@ import { ClockAction } from "../actions/clockActions";
  * Interface for the clock state.
  */
 export interface ClockState {
-    hours: number,
-    minutes: number,
-    seconds: number,
+  hours: number,
+  minutes: number,
+  seconds: number,
 }
 
 /**
  * Initial state for the clock reducer.
  */
 export const initialState: ClockState = {
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
+  hours: 0,
+  minutes: 0,
+  seconds: 0,
 };
 
 export const ClockReducer = (state: ClockState = initialState, action: ClockAction) => {
-    switch (action.type) {
-        case ClockActionTypes.TICK:
-            return {
-                ...state,
-                ...action.payload
-            };
-    }
+  switch (action.type) {
+    case ClockActionTypes.TICK:
+      return {
+        ...state,
+        ...action.payload
+      };
+  }
 };
